@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Moment</title>
+<style>
+    #moment{height: 300px;
+     width: 400px;
+     border:solid blue;
+     margin-top: 30px; 
+     margin: auto;
+     background-color:cyan;
+     border-radius: 10px;
+     }
+     body{
+     background-image:url('photo-1454496522488-7a8e488e8606.jfif');
+     background-size: cover;
+     }
+  
+</style>
+
+</head>
+
+
+<body>
+  <div>
+<div id="moment">
+     <h1 style="text-align: center;">Moment</h1>
+    <div style="text-align: center;"><label style="background-color: greenyellow; border: solid black;">enter DOB as yyyy-m-dd</label>
+       <input type="text" id="number" style="background-image: linear-gradient(yellow,pink);">
+      
+        <!-- <input type="submit" onclick="getans()" style="margin-top: 50px;"><br> -->
+        <button style="border-radius:10px ;border: solid blue; background-color: plum;" onclick="getans()">get answer</button><br>
+
+        <div>
+            <p><b style="color: indigo; font-size: 50px;">Here is your ans</b></p>
+            <div id="answer" style="border: solid black; border-radius: 10%; height: 46px; background-color: yellow;"></div>
+        </div>
+    </div>
+
+</div>
+</div>
+</body>
+
+<script >
+// src moment=require('moment');
+import moment from 'moment';
+    function daysRemaining(s) {
+    var eventdate = moment(s);
+    var todaysdate = moment();
+    return eventdate.diff(todaysdate,"d");
+}
+//  daysRemaining for birthdy;
+// let s='2022-3-10';
+
+    function getans(){
+        var str = document.getElementById("number").value;
+        // var b = str.split('-')
+        let ans= daysRemaining(str)
+        console.log(ans);
+        document.getElementById("answer").innerHTML=`<div style="color:red;"> <div style="font-size:50px">` + ans  + `</div></div>`;
+    }
+
+
+</script>
+
+</html>
+
+
